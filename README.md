@@ -22,3 +22,10 @@ Optional backend (Node.js proxy if CORS issues arise)
   - View past responses
   - Reset session
   - Responsive UI
+
+
+
+pre requirements
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
