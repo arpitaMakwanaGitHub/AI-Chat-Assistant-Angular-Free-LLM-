@@ -1,0 +1,70 @@
+<div class="container-fluid d-flex flex-column min-vh-100 px-0" style="background: #f8f9fb;">
+    <!-- Optional Header -->
+    <div class="text-center py-3 bg-white shadow-sm sticky-top z-3">
+        <h4 class="fw-semibold text-secondary m-0">AI Chat Assistant</h4>
+    </div>
+
+    <!-- Scrollable Message Box -->
+    <div class="flex-grow-1 overflow-auto px-3 py-4" style="max-height: calc(100vh - 180px);" #scrollContainer>
+        <div class="mx-auto" style="max-width: 800px;">
+            <div *ngFor="let msg of messages" class="mb-3">
+                <div [ngClass]="msg.role === 'user' ? 'text-end' : 'text-start'">
+                    <div [ngClass]="msg.role === 'user' ? 'user-bubble' : 'ai-bubble'">
+                        {{ msg.content }}
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="loading" class="text-muted fst-italic text-center">AI is typing...</div>
+        </div>
+    </div>
+
+
+    <!-- Sticky Input Bar -->
+    <!-- <div class="w-100 bg-white px-3 pt-2 pb-4 border-top shadow-sm sticky-bottom z-3">
+        <div class="mx-auto" style="max-width: 800px;">
+            <div class="position-relative">
+                <textarea [(ngModel)]="input" (keyup.enter)="sendMessage()" rows="1"
+                    class="form-control shadow-sm rounded-pill ps-4 pe-5 py-3" placeholder="Type your message..." style="
+                resize: none;
+                overflow-y: auto;
+                max-height: 6.5rem;
+                background: rgba(255, 255, 255, 0.95);
+                font-size: 1rem;
+              ">
+            </textarea>
+
+                <button (click)="sendMessage()" [disabled]="loading"
+                    class="btn btn-success position-absolute end-0 bottom-0 mb-1 me-2 px-3 py-2 rounded-pill shadow-sm"
+                    style="transform: translateY(-10%);">
+                    {{ loading ? '...' : 'Send' }}
+                </button>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <p class="text-muted small mt-1">input: '{{ input }}' | trimmed: '{{ input?.trim() }}'</p> -->
+    <div class="position-fixed bottom-0 start-0 end-0 bg-white px-3 pt-2 pb-3 border-top shadow-sm z-3">
+        <div class="mx-auto" style="max-width: 800px;">
+            <div class="position-relative">
+                <textarea [(ngModel)]="input" (keyup.enter)="sendMessage()" rows="1"
+                    class="form-control shadow-sm rounded-pill ps-4 pe-5 py-3" placeholder="Type your message..." style="
+                resize: none;
+                overflow-y: auto;
+                max-height: 6.5rem;
+                background: rgba(255, 255, 255, 0.95);
+                font-size: 1rem;
+                padding-right: 4rem; 
+                scrollbar-width: none;" #chatInput></textarea>
+
+                <button (click)="sendMessage()" [disabled]="loading || !input.trim()"
+                    class="btn btn-success position-absolute end-0 bottom-0 mb-2 me-2 px-3 py-2 rounded-pill shadow-sm mt-2"
+                    style="transform: translateY(-10%);">
+                    {{ loading ? '...' : 'Send' }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
