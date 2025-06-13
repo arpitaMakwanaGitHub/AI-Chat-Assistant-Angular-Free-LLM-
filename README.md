@@ -22,3 +22,15 @@ Optional backend (Node.js proxy if CORS issues arise)
   - View past responses
   - Reset session
   - Responsive UI
+
+
+
+pre requirements
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+
+/--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+generate your open ai key from the link --> https://openrouter.ai/settings/keys (and store it in environment file)
+
