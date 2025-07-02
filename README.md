@@ -19,11 +19,7 @@ Optional backend (Node.js proxy if CORS issues arise)
 
 🚀 Features
   - Chat with LLM
-  - View past responses
-  - Reset session
   - Responsive UI
-
-
 
 pre requirements
 
